@@ -16,7 +16,8 @@
 
 package utils
 
-func UnionMap(m1, m2 map[string]string) (map[string]string, error) {
+// UnionMap return union map
+func UnionMap(m1, m2 map[string]string) map[string]string {
 	m := make(map[string]string)
 	for k1, v1 := range m1 {
 		for k2, v2 := range m2 {
@@ -26,11 +27,11 @@ func UnionMap(m1, m2 map[string]string) (map[string]string, error) {
 		}
 	}
 
-	return m, nil
+	return m
 }
 
-// two map diff
-func DiffMap(m1, m2 map[string]interface{}) (map[string]interface{}, map[string]interface{}, map[string]interface{}, error) {
+// DiffMap two map diff
+func DiffMap(m1, m2 map[string]interface{}) (map[string]interface{}, map[string]interface{}, map[string]interface{}) {
 	justM1 := make(map[string]interface{})
 	diffM1AndM2 := make(map[string]interface{})
 	justM2 := make(map[string]interface{})
@@ -54,5 +55,5 @@ func DiffMap(m1, m2 map[string]interface{}) (map[string]interface{}, map[string]
 		}
 	}
 
-	return justM1, justM2, diffM1AndM2, nil
+	return justM1, justM2, diffM1AndM2
 }
